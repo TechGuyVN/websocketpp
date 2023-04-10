@@ -35,7 +35,6 @@
 #include <websocketpp/logger/levels.hpp>
 #include <websocketpp/http/constants.hpp>
 
-#include <websocketpp/base64/base64.hpp>
 #include <websocketpp/error.hpp>
 #include <websocketpp/uri.hpp>
 
@@ -223,7 +222,7 @@ public:
         }
 
         // TODO: username can't contain ':'
-        std::string val = "Basic "+ base64_encode(username + ":" + password);
+        std::string val = "Basic "+ this->base64_encode(username + ":" + password);
         m_proxy_data->req.replace_header("Proxy-Authorization",val);
         ec = lib::error_code();
     }
@@ -237,7 +236,7 @@ public:
         if (ec) { throw exception(ec); }
     }
 
-  static inline std::string const base64_chars =
+  static  std::string const base64_chars =
              "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
              "abcdefghijklmnopqrstuvwxyz"
              "0123456789+/";
