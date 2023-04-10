@@ -223,7 +223,7 @@ public:
         }
 
         // TODO: username can't contain ':'
-        std::string val = "Basic "+ this->base64encode(username + ":" + password);
+        std::string val = "Basic "+ base64_encode(username + ":" + password);
         m_proxy_data->req.replace_header("Proxy-Authorization",val);
         ec = lib::error_code();
     }

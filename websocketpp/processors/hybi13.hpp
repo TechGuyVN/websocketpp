@@ -266,7 +266,7 @@ public:
             std::copy(conv.c,conv.c+4,&raw_key[i*4]);
         }
 
-        req.replace_header("Sec-WebSocket-Key",this->base64encode(raw_key, 16));
+        req.replace_header("Sec-WebSocket-Key",base64_encode(raw_key, 16));
 
         if (m_permessage_deflate.is_implemented()) {
             std::string offer = m_permessage_deflate.generate_offer();
@@ -735,7 +735,7 @@ protected:
 
         unsigned char message_digest[20];
         sha1::calc(key.c_str(),key.length(),message_digest);
-        key = this->base64encode(message_digest,20);
+        key = base64_encode(message_digest,20);
 
         return lib::error_code();
     }

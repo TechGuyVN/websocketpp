@@ -275,9 +275,9 @@ in the installer and test system.
   conflicts with similarly named macros in some operating systems. If you are
   using the WebSocket++ provided 64 bit host/network byte order functions you
   will need to switch to the prefixed versions.
-- BREAKING UTILITY CHANGE: The signature of `base64encode` has changed from
-  `websocketpp::base64encode(unsigned char const *, unsigned int)` to
-  `websocketpp::base64encode(unsigned char const *, size_t)`.
+- BREAKING UTILITY CHANGE: The signature of `base64_encode` has changed from
+  `websocketpp::base64_encode(unsigned char const *, unsigned int)` to
+  `websocketpp::base64_encode(unsigned char const *, size_t)`.
 - BREAKING UTILITY CHANGE: The signature of `sha1::calc` has changed from
   `websocketpp::sha1::calc(void const *, int, unsigned char *)` to
   `websocketpp::sha1::calc(void const *, size_t, unsigned char *)`
