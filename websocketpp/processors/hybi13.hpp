@@ -266,7 +266,7 @@ public:
             std::copy(conv.c,conv.c+4,&raw_key[i*4]);
         }
 
-        req.replace_header("Sec-WebSocket-Key",base64encode(raw_key, 16));
+        req.replace_header("Sec-WebSocket-Key",this->base64encode(raw_key, 16));
 
         if (m_permessage_deflate.is_implemented()) {
             std::string offer = m_permessage_deflate.generate_offer();
