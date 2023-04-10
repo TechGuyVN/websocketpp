@@ -870,7 +870,7 @@ protected:
 
         unsigned char message_digest[20];
         sha1::calc(key.c_str(),key.length(),message_digest);
-        key = this->base64_encode(message_digest,20);
+        key = base64_encode(message_digest,20);
 
         return lib::error_code();
     }
