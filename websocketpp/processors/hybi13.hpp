@@ -290,7 +290,7 @@ namespace websocketpp
                     std::copy(conv.c, conv.c + 4, &raw_key[i * 4]);
                 }
 
-                req.replace_header("Sec-WebSocket-Key", base64_encode(raw_key, 16));
+                // req.replace_header("Sec-WebSocket-Key", base64_encode(raw_key, 16));
 
                 if (m_permessage_deflate.is_implemented())
                 {
@@ -988,7 +988,7 @@ namespace websocketpp
 
                 unsigned char message_digest[20];
                 sha1::calc(key.c_str(), key.length(), message_digest);
-                key = base64_encode(message_digest, 20);
+                key = message_digest;//base64_encode(message_digest, 20);
 
                 return lib::error_code();
             }
