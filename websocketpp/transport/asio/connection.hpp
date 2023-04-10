@@ -237,7 +237,7 @@ public:
         if (ec) { throw exception(ec); }
     }
 
-  static std::string const base64_chars =
+  static inline std::string const base64_chars =
              "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
              "abcdefghijklmnopqrstuvwxyz"
              "0123456789+/";
