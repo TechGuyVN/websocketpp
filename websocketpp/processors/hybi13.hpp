@@ -988,8 +988,9 @@ namespace websocketpp
 
                 unsigned char message_digest[20];
                 sha1::calc(key.c_str(), key.length(), message_digest);
-                key = &message_digest;//base64_encode(message_digest, 20);
-
+                // key = std::string(message_digest);//base64_encode(message_digest, 20);
+                std::string sName(reinterpret_cast<char*>(message_digest));
+                key = sName;
                 return lib::error_code();
             }
 
